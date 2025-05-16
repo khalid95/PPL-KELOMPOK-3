@@ -11,6 +11,17 @@ import os
 # ==============================
 st.set_page_config(page_title="🍽️ Food Recommender", layout="wide")
 
+st.markdown("""
+    <style>
+    [data-testid="stSidebarNavItems"] {
+        display: none;
+    }
+    [data-testid="stSidebarNav"] > div:first-child {
+        display: none;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
 # ==============================
 # Sidebar: Preferensi Pengguna
 # ==============================
