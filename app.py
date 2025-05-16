@@ -22,7 +22,7 @@ cuisine = st.sidebar.selectbox("Choose Cuisine", [
     "Healthy Food", "Snack", "Dessert", "Japanese", "Indian", "French",
     "Mexican", "Italian", "Chinese", "Beverage", "Thai",
 ])
-val = st.sidebar.slider("Minimum Rating", 0, 10, 5)
+val = st.sidebar.slider("Rating", 0, 10, 5)
 
 # Tombol untuk melakukan pencarian
 if st.sidebar.button("🔎 Search"):
