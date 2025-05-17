@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import os
+import hashlib
 
 # ===============================
 # PATH & SETUP
@@ -22,6 +23,9 @@ st.title("🔐 Admin Panel – Manage Food Items")
 # ===============================
 # LOGIN ADMIN SEDERHANA
 # ===============================
+def hash_password(password):
+    return hashlib.sha256(password.encode()).hexdigest()
+
 if "admin_logged_in" not in st.session_state:
    st.session_state.admin_logged_in = False
 
@@ -31,14 +35,19 @@ if not st.session_state.admin_logged_in:
       password = st.text_input("Password", type="password")
       submit = st.form_submit_button("Login")
       if submit:
-         if username == "admin" and password == "admin123":
+         if username == "admin" and hash_password(password) == "240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9":
                st.session_state.admin_logged_in = True
                st.success("Login successful ✅")
                st.rerun()
          else:
                st.error("Invalid credentials")
    st.stop()
-
+else:
+    st.write("Welcome, admin!")
+    # Tambahkan tombol logout
+    if st.button("Logout"):
+        st.session_state.admin_logged_in = False
+        
 # ===============================
 # HELPER FUNCTIONS
 # ===============================
