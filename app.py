@@ -25,7 +25,7 @@ st.markdown("""
 # ==============================
 # Sidebar: Preferensi Pengguna
 # ==============================
-st.sidebar.image("foood.jpg", caption="Find Your Favorite Food!", use_column_width=True)
+st.sidebar.image("foood.jpg", caption="Find Your Favorite Food!", use_container_width=True)
 st.sidebar.title("🍴 Food Preferences")
 
 vegn = st.sidebar.radio("Vegetables or not?", ["veg", "non-veg"], index=1)
@@ -159,7 +159,7 @@ def save_rating(food_id, rating_value):
 # ==============================
 @st.dialog("🍴 Food Details")
 def show_details(food_name, food_id, image_url, description):
-    st.image(image_url, use_column_width=True)
+    st.image(image_url, use_container_width=True)
     st.markdown(f"### {food_name}")
     st.write(description)
     st.subheader("⭐ Rate this food")
@@ -183,7 +183,7 @@ if "selected_dish" in st.session_state and st.session_state.selected_dish:
         cols = st.columns(3)
         for i, item in results.iterrows():
             with cols[i % 3]:
-                st.image(item["Image_URL"], use_column_width=True)
+                st.image(item["Image_URL"], use_container_width=True)
                 st.markdown(f"**{item['Name']}**")
                 st.caption(item["Describe"][:80] + "...")
                 if st.button("🔍 View", key=f"view_{item['id']}"):
