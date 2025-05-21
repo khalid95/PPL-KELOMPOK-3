@@ -25,7 +25,7 @@ st.markdown("""
 # ==============================
 # Sidebar: Preferensi Pengguna
 # ==============================
-st.sidebar.image("logo.jpg", caption="Find Your Favorite Food!", use_container_width=True)
+st.sidebar.image("logo.png", caption="Find Your Favorite Food!", use_container_width=True)
 st.sidebar.title("🍴 Food Preferences")
 
 vegn = st.sidebar.radio("Vegetables or not?", ["veg", "non-veg"], index=1)
